@@ -336,7 +336,7 @@ server.delete(
   }
 );
 
-const port = +process.env.PORT | 5000;
+const port = +process.env.PORT || 5000;
 const host = process.env.HOST;
 const callbackFn = (port: number) => {
   console.log(`Tap Vote 🚀 server started on port ${port}`);
