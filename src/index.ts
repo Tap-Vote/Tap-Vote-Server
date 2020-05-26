@@ -179,12 +179,6 @@ const questionnaireRequestHandler = (
 const server = Express();
 server.use(BodyParser.json());
 
-server.get('/welcome', (_request, response) => {
-  response.json({
-    message: 'hello'
-  });
-});
-
 server.get(`${base}/questionnaires`, (request, response) => {
   questionnaireRequestHandler(request, response, getQuestionnaires);
 });
