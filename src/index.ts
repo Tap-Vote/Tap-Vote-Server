@@ -34,7 +34,9 @@ const v1 = `${api}/v1`;
 const base = v1;
 
 const admin = Admin.initializeApp({
-  credential: Admin.credential.cert(process.env.GOOGLE_APPLICATION_CREDENTIALS),
+  credential: Admin.credential.cert(
+    JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS)
+  ),
   databaseURL: process.env.DATABASE_URL
 });
 
