@@ -179,6 +179,12 @@ const questionnaireRequestHandler = (
 const server = Express();
 server.use(BodyParser.json());
 
+server.get('/welcome', (_request, response) => {
+  response.json({
+    message: 'hello'
+  });
+});
+
 server.get(`${base}/questionnaires`, (request, response) => {
   questionnaireRequestHandler(request, response, getQuestionnaires);
 });
@@ -336,7 +342,7 @@ const callbackFn = (port: number) => {
   console.log(`Tap Vote 🚀 server started on port ${port}`);
 };
 console.log(`HOST: ${host ? host : 'HOST env variable is not set'}`);
-console.log(`POST: ${port ? port : 'PORT env variable is not set'}`);
+console.log(`PORT: ${port ? port : 'PORT env variable is not set'}`);
 host
   ? server.listen(port, host, () => callbackFn(port))
   : server.listen(port, () => callbackFn(port));
