@@ -178,10 +178,7 @@ const questionnaireRequestHandler = (
 
 const server = Express();
 server.use((request, response, next) => {
-  response.setHeader(
-    'Access-Control-Allow-Origin',
-    'https://tap-vote-ng.herokuapp.com'
-  );
+  response.setHeader('Access-Control-Allow-Origin', '*');
   next();
 });
 server.use(BodyParser.json());
