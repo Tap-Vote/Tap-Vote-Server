@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - node
+deploy:
+  provider: heroku
+  api_key:
+    secure: kCESPL1CXQZhCwkVjU4n4aw7HJOmKKzTP/nmR42vqbwcLLdmzjtaIz1MNrRSW0hcOceEo6rt7sOlR9hsnBqrgihgC77vwv1ofC7gL9NwPyjPmMPaWa91PoCJ8JRaWfND+C1lNmyK5jImFRbohSagEbMG9ZhRgHfYNtrkWUh0c85YnQC8iWtquuhIrQaJOqYD3O3HkM/PhakD64y+hUHXVGp7SP1cepe/GztmwxogibimHr97kkHBysgVQ2Z+3SUfbeTBCGD/KOKX0dDt/uGwQ9bOPpuIg4SESXluAvZ5RCKONVYOENN4uc6gu6z2AbI7yX0LUwZmROEDxpTMc2yucmt/Nvz8RA8Wr6ho1nMUUhJKCm13VSBG15z7fcrMY7eA22W2c3lVjJXj6hY4l0JKGLAg+P/tPfI1G3m8XbvEeg8MTrRqqQY2F0SIGRruLFi4W0ZKlmaL1iS73yZW/KeTwbU9auCLqI7XgTdR1Y1qKec+SqS0U3yoEQJTK+OoPcFwFTiF7sYtm0KDAel37pVrnLrsg7aVuC1YptLX6dZCCY5pZLEyUMmZaLXwQpR3WuPyXkNXbTIzKS+SbfhLTg7MITtU0Db9mexezS5+SSIP0ntr/jwlHI4Dj11kpA0LJ+Pn1oJWogW2pSVwnydwOAN2Z8vJvwjghyV8yQbIQxq+JtE=
+  app: tap-vote-server
+script:
+  - npm run test
+  - npm run build
