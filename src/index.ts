@@ -177,6 +177,13 @@ const questionnaireRequestHandler = (
 };
 
 const server = Express();
+server.use((request, response, next) => {
+  response.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://tap-vote-ng.herokuapp.com'
+  );
+  next();
+});
 server.use(BodyParser.json());
 
 server.get(`${base}/questionnaires`, (request, response) => {
@@ -335,8 +342,8 @@ const host = process.env.HOST;
 const callbackFn = (port: number) => {
   console.log(`Tap Vote 🚀 server started on port ${port}`);
 };
-console.log(`HOST: ${host ? host : 'HOST env variable is not set'}`);
-console.log(`PORT: ${port ? port : 'PORT env variable is not set'}`);
+console.log(`HOST: ${host ? host : 'env variable is not set'}`);
+console.log(`PORT: ${port ? port : 'env variable is not set'}`);
 host
   ? server.listen(port, host, () => callbackFn(port))
   : server.listen(port, () => callbackFn(port));
