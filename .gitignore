@@ -3,6 +3,9 @@
 # Created by https://www.gitignore.io/api/osx,git,vim,node,macos,emacs,dotenv,windows,visualstudio,jetbrains+all,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=osx,git,vim,node,macos,emacs,dotenv,windows,visualstudio,jetbrains+all,visualstudiocode
 
+### build ###
+build/
+
 ### dotenv ###
 .env
 

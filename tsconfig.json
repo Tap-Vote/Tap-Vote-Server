@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./build",
+    "outDir": "./build/tap-vote-server",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
