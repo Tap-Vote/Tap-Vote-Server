@@ -182,10 +182,6 @@ server.use((request, response, next) => {
     'Access-Control-Allow-Origin',
     'https://tap-vote-ng.herokuapp.com'
   );
-  // response.setHeader(
-  //   'Access-Control-Allow-Methods',
-  //   'GET, PUT, POST, DELETE, HEAD, OPTIONS'
-  // );
   response.setHeader('Access-Control-Allow-Headers', 'authorization');
   next();
 });
