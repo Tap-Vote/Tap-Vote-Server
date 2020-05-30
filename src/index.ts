@@ -227,27 +227,6 @@ server.get(`${base}/questionnaires/:questionnaireId`, (request, response) => {
   );
 });
 
-// server.post(`${base}/questionnaires`, (request, response) => {
-//   extractAndVerifyJwt(request).then((uid) => {
-//     if (uid) {
-//       const questionnaire: Questionnaire = request.body;
-//       const id = uuid();
-//       questionnaire.id = id;
-//       postQuestionnaire(uid, questionnaire)
-//         .then((key) => {
-//           response.json({
-//             key
-//           });
-//         })
-//         .catch(() => {
-//           response.sendStatus(500);
-//         });
-//     } else {
-//       response.sendStatus(401);
-//     }
-//   });
-// });
-
 server.post(`${base}/questionnaires`, (request, response) => {
   extractAndVerifyJwt(request).then((uid) => {
     if (uid) {
