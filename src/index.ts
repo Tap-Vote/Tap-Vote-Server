@@ -177,20 +177,26 @@ const questionnaireRequestHandler = (
 };
 
 const server = Express();
+const authorizedOrigins = process.env.AUTHORIZED_ORIGINS.split(',');
 
 server.use((request, response, next) => {
-  response.setHeader(
-    'Access-Control-Allow-Origin',
-    'https://tap-vote-ng.herokuapp.com'
-  );
-  response.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, PUT, POST, DELETE, HEAD, OPTIONS'
-  );
-  response.setHeader(
-    'Access-Control-Allow-Headers',
-    'authorization,content-type'
-  );
+  if (request.headers.origin) {
+    const incomingOrigin = request.headers.origin;
+    const authorizedOrigin = authorizedOrigins.find((authOrigin) => {
+      return authOrigin === incomingOrigin;
+    });
+    if (authorizedOrigin) {
+      response.setHeader('Access-Control-Allow-Origin', authorizedOrigin);
+      response.setHeader(
+        'Access-Control-Allow-Methods',
+        'GET, PUT, POST, DELETE, HEAD, OPTIONS'
+      );
+      response.setHeader(
+        'Access-Control-Allow-Headers',
+        'authorization,content-type'
+      );
+    }
+  }
   next();
 });
 server.use(BodyParser.json());
